@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             textView1.setText(buttontext);
         }
         else{
-            textView2.setText(textView2.getText()+buttontext);
+            textView2.setText(text+buttontext);
 
             char operator = text.charAt(0);
 
@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String text2 = textView2.getText().toString();
         String buttontext = btnadd.getText().toString();
 
-        textView3.setText(textView3.getText()+text2);
+        textView3.setText(text1+text2);
         textView2.setText(buttontext);
 
     }
@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String text2 = textView2.getText().toString();
         String buttontext = btnsub.getText().toString();
 
-        textView3.setText(textView3.getText()+text2);
+        textView3.setText(text1+text2);
         textView2.setText(buttontext);
 
     }
@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String text2 = textView2.getText().toString();
         String buttontext = btnmul.getText().toString();
 
-        textView3.setText(textView3.getText()+text2);
+        textView3.setText(text1+text2);
         textView2.setText(buttontext);
 
     }
@@ -165,7 +165,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String text2 = textView2.getText().toString();
         String buttontext = btndivide.getText().toString();
 
-        textView3.setText(textView3.getText()+text2);
+        textView3.setText(text1+text2);
         textView2.setText(buttontext);
 
     }
