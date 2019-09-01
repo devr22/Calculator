@@ -8,6 +8,18 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textview_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15sp"
+        android:layout_marginRight="15sp"
+        android:layout_marginBottom="10sp"
+        android:layout_above="@+id/textview_1"
+        android:textSize="32sp"
+        android:textAlignment="viewEnd"/>
+
+    <TextView
+        android:id="@+id/textview_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="15sp"
