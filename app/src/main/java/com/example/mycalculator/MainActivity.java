@@ -54,21 +54,176 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             buttons[i].setOnClickListener(this);
         }
 
+        btnadd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addition();
+            }
+        });
+
+        btnsub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                subtraction();
+            }
+        });
+
+        btnmul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                multiplication();
+            }
+        });
+
+        btndivide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                division();
+            }
+        });
+
+        btnequal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                answer();
+            }
+        });
+
     }
 
+    //On pressing number
     @Override
     public void onClick(View view) {
 
-        String text = (String) textView2.getText();
-        String buttonText = ((Button)view).getText().toString();
+        String text = textView2.getText().toString();
+        String buttontext = ((Button)view).getText().toString();
 
 
-        if(text == "0"){
-            textView2.setText(buttonText);
+        if(text.isEmpty()){
+            textView2.setText(buttontext);
+            textView1.setText(buttontext);
         }
         else{
-            textView2.setText(text + buttonText);
+            textView2.setText(textView2.getText()+buttontext);
+
+            char operator = text.charAt(0);
+
+            switch (operator){
+                case '+':
+                    add();
+                    break;
+                case '-':
+                    sub();
+                    break;
+                case '*':
+                    mul();
+                    break;
+                case '/':
+                    divide();
+                    break;
+            }
         }
 
     }
+
+    private void addition(){
+
+        String text1 = textView3.getText().toString();
+        String text2 = textView2.getText().toString();
+        String buttontext = btnadd.getText().toString();
+
+        textView3.setText(textView3.getText()+text2);
+        textView2.setText(buttontext);
+
+    }
+
+    private void subtraction(){
+
+        String text1 = textView3.getText().toString();
+        String text2 = textView2.getText().toString();
+        String buttontext = btnsub.getText().toString();
+
+        textView3.setText(textView3.getText()+text2);
+        textView2.setText(buttontext);
+
+    }
+
+    private void multiplication(){
+
+        String text1 = textView3.getText().toString();
+        String text2 = textView2.getText().toString();
+        String buttontext = btnmul.getText().toString();
+
+        textView3.setText(textView3.getText()+text2);
+        textView2.setText(buttontext);
+
+    }
+
+    private void division(){
+
+        String text1 = textView3.getText().toString();
+        String text2 = textView2.getText().toString();
+        String buttontext = btndivide.getText().toString();
+
+        textView3.setText(textView3.getText()+text2);
+        textView2.setText(buttontext);
+
+    }
+
+    private void add(){
+        String text = textView2.getText().toString();
+        int textlength = text.length();
+
+        Float val1 = Float.parseFloat(textView1.getText().toString());
+        Float val2 = Float.parseFloat(text.substring(1,textlength-1));
+
+        Float sum = val1 + val2;
+
+        textView1.setText(sum.toString());
+    }
+
+    private void sub(){
+        String text = textView2.getText().toString();
+        int textlength = text.length();
+
+        Float val1 = Float.parseFloat(textView1.getText().toString());
+        Float val2 = Float.parseFloat(text.substring(1,textlength-1));
+
+        Float difference = val1 - val2;
+
+        textView1.setText(difference.toString());
+    }
+
+    private void mul(){
+        String text = textView2.getText().toString();
+        int textlength = text.length();
+
+        Float val1 = Float.parseFloat(textView1.getText().toString());
+        Float val2 = Float.parseFloat(text.substring(1,textlength-1));
+
+        Float product = val1 * val2;
+
+        textView1.setText(product.toString());
+    }
+
+    private void divide(){
+        String text = textView2.getText().toString();
+        int textlength = text.length();
+
+        Float val1 = Float.parseFloat(textView1.getText().toString());
+        Float val2 = Float.parseFloat(text.substring(1,textlength-1));
+
+        Float div = val1 / val2;
+
+        textView1.setText(div.toString());
+    }
+
+    private void answer(){
+        String text = textView2.getText().toString();
+
+        textView3.setText(textView3.getText()+text);
+        textView2.setText(textView1.getText().toString());
+        textView1.setText("");
+    }
+
 }
