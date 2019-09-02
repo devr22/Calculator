@@ -89,6 +89,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        btnpercent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                percentage();
+            }
+        });
+
+      /*  btndot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dotOperation();
+            }
+        });*/
+
     }
 
     //On pressing number
@@ -98,8 +112,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String text = textView2.getText().toString();
         String buttontext = ((Button)view).getText().toString();
 
-
-        if(text.isEmpty()){
+        textView2.setText(text+buttontext);
+      /*  if(text.isEmpty()){
             textView2.setText(buttontext);
             textView1.setText(buttontext);
         }
@@ -122,17 +136,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     divide();
                     break;
             }
-        }
+        }*/
 
     }
 
     private void addition(){
 
-        String text1 = textView3.getText().toString();
+        //String text1 = textView3.getText().toString();
         String text2 = textView2.getText().toString();
         String buttontext = btnadd.getText().toString();
 
-        textView3.setText(text1+text2);
+       // textView3.setText(text1+text2);
         textView2.setText(buttontext);
 
     }
@@ -174,24 +188,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String text = textView2.getText().toString();
         int textlength = text.length();
 
-        Float val1 = Float.parseFloat(textView1.getText().toString());
+        Float val1 = Float.parseFloat(textView3.getText().toString());
         Float val2 = Float.parseFloat(text.substring(1,textlength-1));
 
         Float sum = val1 + val2;
 
-        textView1.setText(sum.toString());
+        textView2.setText("="+sum.toString());
+        textView3.setText(textView3.getText()+text);
     }
 
     private void sub(){
         String text = textView2.getText().toString();
         int textlength = text.length();
 
-        Float val1 = Float.parseFloat(textView1.getText().toString());
+        Float val1 = Float.parseFloat(textView3.getText().toString());
         Float val2 = Float.parseFloat(text.substring(1,textlength-1));
 
         Float difference = val1 - val2;
 
-        textView1.setText(difference.toString());
+        textView2.setText("="+difference.toString());
+        textView3.setText(textView3.getText()+text);
     }
 
     private void mul(){
@@ -203,7 +219,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Float product = val1 * val2;
 
-        textView1.setText(product.toString());
+        textView2.setText("="+product.toString());
+        textView3.setText(textView3.getText()+text);
     }
 
     private void divide(){
@@ -215,15 +232,57 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Float div = val1 / val2;
 
-        textView1.setText(div.toString());
+        textView2.setText("="+div.toString());
+        textView3.setText(textView3.getText()+text);
     }
 
     private void answer(){
         String text = textView2.getText().toString();
+        char operator = text.charAt(0);
 
-        textView3.setText(textView3.getText()+text);
+        switch (operator){
+            case '+':
+                add();
+                break;
+            case '-':
+                sub();
+                break;
+            case '*':
+                mul();
+                break;
+            case '/':
+                divide();
+                break;
+        }
+
+       /* textView3.setText(textView3.getText()+text);
         textView2.setText(textView1.getText().toString());
-        textView1.setText("");
+        textView1.setText("");*/
     }
+
+    private void percentage(){
+        String text = textView2.getText().toString();
+
+        if (text.contains("+")||text.contains("-")||text.contains("*")||text.contains("/")||text.isEmpty()){
+
+        }
+        else{
+            Float val = Float.parseFloat(text);
+            Float percent = val/100;
+            textView2.setText(percent.toString());
+        }
+    }
+
+  /* private void dotOperation(){
+        String text = textView2.getText().toString();
+        String buttontext = btndot.getText().toString();
+
+        if (text.isEmpty()){
+            textView2.setText("0.");
+        }
+        else if (text.equals("+") || text.equals("-") || text.equals("*") || text.equals("/")){
+            textView2.setText(text+"0.");
+        }
+    }*/
 
 }
