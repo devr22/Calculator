@@ -5,18 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#f2e9e9"
     tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/textview_3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textview_2"
-        android:layout_marginLeft="15sp"
-        android:layout_marginRight="15sp"
-        android:layout_marginBottom="0sp"
-        android:textAlignment="viewEnd"
-        android:textSize="32sp"/>
 
     <TextView
         android:id="@+id/textview_2"
@@ -25,30 +15,33 @@
         android:layout_above="@+id/textview_1"
         android:layout_marginLeft="15sp"
         android:layout_marginRight="15sp"
-        android:layout_marginBottom="5sp"
+        android:layout_marginBottom="10sp"
         android:textAlignment="viewEnd"
-        android:textSize="64sp"
-        android:textStyle="bold" />
+        android:textSize="32sp"
+        android:background="#e8edd8"/>
 
     <TextView
         android:id="@+id/textview_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/buttonPanel"
-        android:layout_marginBottom="20sp"
-        android:layout_marginRight="15sp"
         android:layout_marginLeft="15sp"
+        android:layout_marginRight="15sp"
+        android:layout_marginBottom="20sp"
         android:textAlignment="viewEnd"
-        android:textSize="20sp"/>
+        android:textSize="64sp"
+        android:textStyle="bold"
+        android:background="#ede6d8"/>
+
+
 
     <LinearLayout
         android:id="@+id/buttonPanel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10sp"
-        android:layout_marginLeft="10sp"
-        android:layout_marginRight="10sp"
+        android:layout_marginBottom="20sp"
+        android:layout_centerHorizontal="true"
         android:padding="10sp"
         android:background="#444"
         android:orientation="vertical">
@@ -65,7 +58,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/C"
-                android:textSize="18sp"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="210dp"
                 tools:layout_editor_absoluteY="368dp" />
